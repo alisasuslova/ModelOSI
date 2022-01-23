@@ -8,19 +8,18 @@ public class Main {
     public static void main(String[] args) {
 
         String host = "localhost";
-        //String host = "127.0.0.1";
         int port = 8093;
 
         try (Socket clientSocket = new Socket(host, port);
              PrintWriter out = new
-                     PrintWriter(clientSocket.getOutputStream(), true);  //выходной поток
+                     PrintWriter(clientSocket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new
-                     InputStreamReader(clientSocket.getInputStream()))) { //входной
+                     InputStreamReader(clientSocket.getInputStream()))) {
 
-            out.println("Alice"); //отправляем одну строку "Netology"
+            out.println("Alice");
 
-            String  resp = in.readLine(); //читаем одну строку "Netology"
-            System.out.println(resp); // вывод на экран и завершение работы
+            String  resp = in.readLine();
+            System.out.println(resp);
         }
         catch (IOException e) {
             e.printStackTrace();
